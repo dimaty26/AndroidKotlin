@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "ru.geekbrains.homework3"
         minSdk 23
@@ -33,6 +37,7 @@ android {
 
 dependencies {
 
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
