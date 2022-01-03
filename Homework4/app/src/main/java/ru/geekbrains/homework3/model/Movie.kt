@@ -5,6 +5,7 @@ data class Movie(
     val type: String,
     val description: String,
     val year: Int,
+    val length: Int,
     val rating: Double
 )
 
@@ -13,5 +14,6 @@ fun getDefaultMovie() = Movie(
     DefaultMovie.type,
     DefaultMovie.description,
     DefaultMovie.year,
+    DefaultMovie.length,
     DefaultMovie.rating
 )

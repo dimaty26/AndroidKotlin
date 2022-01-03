@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
-import ru.geekbrains.homework3.AppState
-import ru.geekbrains.homework3.MainViewModel
 import ru.geekbrains.homework3.databinding.FragmentMainBinding
+import ru.geekbrains.homework3.model.Movie
+import ru.geekbrains.homework3.viewmodel.AppState
+import ru.geekbrains.homework3.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
 
@@ -31,9 +32,9 @@ class MainFragment : Fragment() {
                 binding.loadingLayout.visibility = View.VISIBLE
             }
             is AppState.Success -> {
-                val data = appState.response
+                val movie = appState.movieResponse
                 binding.loadingLayout.visibility = View.GONE
-                Snackbar.make(binding.mainView, data, Snackbar.LENGTH_LONG).show()
+                setData(movie)
             }
             is AppState.Error -> {
                 val data = appState.error.message
@@ -46,6 +47,15 @@ class MainFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setData(movie: Movie) {
+        binding.movieName.text = movie.name
+        binding.typeOfMovie.text = movie.type
+        binding.description.text = movie.description
+        binding.year.text = movie.year.toString()
+        binding.movieLength.text = movie.length.toString()
+        binding.ratings.text = movie.rating.toString()
     }
 
     override fun onCreateView(

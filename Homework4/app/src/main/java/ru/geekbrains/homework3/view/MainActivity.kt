@@ -1,7 +1,8 @@
-package ru.geekbrains.homework3
+package ru.geekbrains.homework3.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ru.geekbrains.homework3.R
 import ru.geekbrains.homework3.databinding.ActivityMainBinding
 import ru.geekbrains.homework3.fragments.MainFragment
 
