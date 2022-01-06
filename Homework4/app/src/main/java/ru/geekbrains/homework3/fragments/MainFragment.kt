@@ -51,7 +51,6 @@ class MainFragment : Fragment() {
 
     private fun setData(movie: Movie) {
         binding.movieName.text = movie.name
-        binding.typeOfMovie.text = movie.type
         binding.description.text = movie.description
         binding.year.text = movie.year.toString()
         binding.movieLength.text = movie.length.toString()
