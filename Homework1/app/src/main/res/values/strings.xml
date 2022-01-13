@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Homework1</string>
-    <string name="click">Click</string>
-    <string name="city">City</string>
-    <string name="temperature">Temperature</string>
-    <string name="carmodel">CarModel</string>
-</resources>
