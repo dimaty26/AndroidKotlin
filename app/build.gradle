@@ -34,6 +34,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
+        def apiKey = properties.getProperty("API_KEY", "")
+        it.buildConfigField "String", "MOVIE_API_KEY", apiKey
+    }
 }
 
 dependencies {

@@ -1,4 +1,4 @@
-package ru.geekbrains.homework3.fragments
+package ru.geekbrains.homework3.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
