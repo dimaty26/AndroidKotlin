@@ -7,8 +7,8 @@ import ru.geekbrains.homework3.model.MovieDetails
 
 interface TheMovieDBService {
 
-    //https://api.themoviedb.org/3/movie/popular?api_key=***
-    //https://api.themoviedb.org/3/movie/634649?api_key=***
+    //https://api.themoviedb.org/3/movie/popular?api_key=
+    //https://api.themoviedb.org/3/movie/634649?api_key=
     //https://api.themoviedb.org/3/movie
 
 
