@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
         val apiService: TheMovieDBService = TheMovieDBClient.getClient()
         repository = RepositoryImpl(apiService)
 
-        viewModel = getViewModel(1) //id = 1 is example
+        viewModel = getViewModel(634649) //id = 1 is example
         viewModel.movieDetails.observe(viewLifecycleOwner, Observer { renderData(it) })
         viewModel.appState.observe(viewLifecycleOwner, Observer {
             binding.progressBar.visibility = if (it == AppState.Loading) View.VISIBLE else View.GONE
