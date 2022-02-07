@@ -1,24 +1,25 @@
 package ru.geekbrains.homework3.viewmodel
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import ru.geekbrains.homework3.model.MovieDetails
 import ru.geekbrains.homework3.model.Repository
-import ru.geekbrains.homework3.model.RepositoryImpl
-import java.lang.Thread.sleep
 
-class MainViewModel(
-    private val liveData: MutableLiveData<AppState> = MutableLiveData(),
-    private val repositoryImpl: Repository = RepositoryImpl()
-) : ViewModel() {
+class MainViewModel(private val repository: Repository, movieId: Int) : ViewModel() {
 
-    fun getLiveData() = liveData
+    private val compositeDisposable = CompositeDisposable()
 
-    fun getMovieFromLocalSource() = getDataFromServer()
+    val movieDetails: LiveData<MovieDetails> by lazy {
+        repository.fetchSingleMovieDetails(compositeDisposable, movieId)
+    }
 
-    fun getDataFromServer() {
-        Thread {
-            sleep(5000)
-            liveData.postValue(AppState.Success(repositoryImpl.getMovieFromLocalStorage()))
-        }.start()
+    val appState: LiveData<AppState> by lazy {
+        repository.getMovieDetailsAppState()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.dispose() //avoid data leaks
     }
 }
